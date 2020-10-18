@@ -1,12 +1,12 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use RonasIT\Support\Exceptions\ClassAlreadyExistsException;
-use RonasIT\Support\Exceptions\ClassNotExistsException;
-use RonasIT\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Exceptions\ClassAlreadyExistsException;
+use Asxer\Support\Exceptions\ClassNotExistsException;
+use Asxer\Support\Events\SuccessCreateMessage;
 
 class ModelGenerator extends EntityGenerator
 {

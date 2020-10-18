@@ -1,9 +1,9 @@
 <?php
 
-namespace RonasIT\Support;
+namespace Asxer\Support;
 
 use Illuminate\Support\ServiceProvider;
-use RonasIT\Support\Commands\MakeEntityCommand;
+use Asxer\Support\Commands\MakeEntityCommand;
 
 class EntityGeneratorServiceProvider extends ServiceProvider
 {

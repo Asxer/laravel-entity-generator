@@ -1,6 +1,6 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;

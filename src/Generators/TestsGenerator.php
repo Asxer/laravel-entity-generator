@@ -1,12 +1,12 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use RonasIT\Support\Exceptions\CircularRelationsFoundedException;
-use RonasIT\Support\Exceptions\ClassNotExistsException;
-use RonasIT\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Exceptions\CircularRelationsFoundedException;
+use Asxer\Support\Exceptions\ClassNotExistsException;
+use Asxer\Support\Events\SuccessCreateMessage;
 
 class TestsGenerator extends EntityGenerator
 {
@@ -34,7 +34,7 @@ class TestsGenerator extends EntityGenerator
         $content = $this->getStub('dump', [
             'inserts' => $this->getInserts()
         ]);
-        $createMessage = "Created a new Test dump on path: {$this->paths['tests']}/fixtures/{$this->getTestClassName()}/dump.sql";
+        $createMessage = "Created a new Test dump on path: {$this->paths['tests']}/Fixtures/Feature/{$this->getTestClassName()}/dump.sql";
 
         mkdir_recursively($this->getFixturesPath());
 
@@ -159,7 +159,7 @@ class TestsGenerator extends EntityGenerator
 
     public function getFixturesPath($fileName = null)
     {
-        $path = base_path("{$this->paths['tests']}/fixtures/{$this->getTestClassName()}");
+        $path = base_path("{$this->paths['tests']}/Fixtures/Feature/{$this->getTestClassName()}");
 
         if (empty($fileName)) {
             return $path;
@@ -193,7 +193,7 @@ class TestsGenerator extends EntityGenerator
     {
         $fixturePath = $this->getFixturesPath($fixtureName);
         $content = json_encode($data, JSON_PRETTY_PRINT);
-        $fixtureRelativePath = "{$this->paths['tests']}/fixtures/{$this->getTestClassName()}/{$fixtureName}";
+        $fixtureRelativePath = "{$this->paths['tests']}/Fixtures/Feature/{$this->getTestClassName()}/{$fixtureName}";
         $createMessage = "Created a new Test fixture on path: {$fixtureRelativePath}";
 
         file_put_contents($fixturePath, $content);

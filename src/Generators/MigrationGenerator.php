@@ -1,10 +1,10 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Carbon\Carbon;
 use Exception;
-use RonasIT\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Events\SuccessCreateMessage;
 
 class MigrationGenerator extends EntityGenerator
 {

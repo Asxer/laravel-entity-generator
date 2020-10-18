@@ -1,10 +1,10 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use RonasIT\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Events\SuccessCreateMessage;
 
 class RequestsGenerator extends EntityGenerator
 {
@@ -79,7 +79,7 @@ class RequestsGenerator extends EntityGenerator
         $parameters['array'] = ['with'];
 
         $parameters['string-required'] = ['with.*'];
-        
+
         return $this->getValidationParameters($parameters, true);
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Support\Arr;
-use RonasIT\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Events\SuccessCreateMessage;
 
 class TranslationsGenerator extends EntityGenerator
 {
@@ -21,13 +21,13 @@ class TranslationsGenerator extends EntityGenerator
         if (!file_exists($this->translationPath)) {
             $this->createTranslate();
         }
-        
+
         if ($this->isTranslationMissed('validation.exceptions.not_found')) {
             $this->appendNotFoundException();
         }
     }
 
-    protected function isTranslationMissed($translation) 
+    protected function isTranslationMissed($translation)
     {
         return __($translation) === 'validation.exceptions.not_found';
     }
@@ -41,20 +41,20 @@ class TranslationsGenerator extends EntityGenerator
         file_put_contents($this->translationPath, $content);
 
         $createMessage = "Created a new Translations dump on path: {$this->translationPath}";
-        
+
         event(new SuccessCreateMessage($createMessage));
     }
 
     protected function appendNotFoundException()
     {
         $content = file_get_contents($this->translationPath);
-        
+
         $stubPath = config('entity-generator.stubs.translation_not_found');
-        
+
         $stubContent = view($stubPath)->render();
 
         $fixedContent = preg_replace('/\]\;\s*$/', "\n\t{$stubContent}", $content);
-        
+
         file_put_contents($this->translationPath, $fixedContent);
     }
 }

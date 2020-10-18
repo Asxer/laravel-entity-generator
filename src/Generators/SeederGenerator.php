@@ -1,10 +1,10 @@
 <?php
 
-namespace RonasIT\Support\Generators;
+namespace Asxer\Support\Generators;
 
 use Illuminate\Support\Arr;
-use RonasIT\Support\Events\SuccessCreateMessage;
-use RonasIT\Support\Exceptions\EntityCreateException;
+use Asxer\Support\Events\SuccessCreateMessage;
+use Asxer\Support\Exceptions\EntityCreateException;
 
 class SeederGenerator extends EntityGenerator
 {
@@ -24,7 +24,7 @@ class SeederGenerator extends EntityGenerator
         $this->checkConfigs();
 
         if (!file_exists($this->databaseSeederPath)) {
-            
+
             if (!is_dir($this->seedsPath)){
                 mkdir($this->seedsPath);
             }
@@ -46,7 +46,7 @@ class SeederGenerator extends EntityGenerator
         file_put_contents($this->databaseSeederPath, $content);
 
         $createMessage = "Created a new DatabaseSeeder.php on path: {$this->databaseSeederPath}";
-        
+
         event(new SuccessCreateMessage($createMessage));
     }
 
@@ -64,18 +64,18 @@ class SeederGenerator extends EntityGenerator
         file_put_contents($seederPath, $content);
 
         $createMessage = "Created a new Seeder on path: {$seederPath}";
-        
+
         event(new SuccessCreateMessage($createMessage));
     }
 
     protected function appendSeederToList()
     {
         $content = file_get_contents($this->databaseSeederPath);
-        
+
         $insertContent = "\n        \$this->call({$this->model}Seeder::class);\n    }\n}";
 
         $fixedContent = preg_replace('/\}\s*\}\s*\z/', $insertContent, $content);
-        
+
         file_put_contents($this->databaseSeederPath, $fixedContent);
     }
 
@@ -84,7 +84,7 @@ class SeederGenerator extends EntityGenerator
         if (empty(config('entity-generator.stubs.seeder'))) {
             throw new EntityCreateException('
                 Looks like you have deprecated configs.
-                Please follow instructions(https://github.com/RonasIT/laravel-entity-generator/blob/master/ReadMe.md#13)
+                Please follow instructions(https://github.com/Asxer/laravel-entity-generator/blob/master/ReadMe.md#13)
             ');
         }
     }

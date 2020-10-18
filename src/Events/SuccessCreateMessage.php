@@ -1,6 +1,6 @@
 <?php
 
-namespace RonasIT\Support\Events;
+namespace Asxer\Support\Events;
 
 use Illuminate\Queue\SerializesModels;
 
