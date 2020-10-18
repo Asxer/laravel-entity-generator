@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "RonasIT\\Support\\": "src/"
+      "Asxer\\Support\\": "src/"
     },
     "files": [
       "src/helpers.php"
