@@ -5,10 +5,10 @@ Laravel-Entity-Generator - This generator is used to create a standard class sta
 ### Install
 
 ```bash
-    composer require ronasit/laravel-entity-generator: 1.*
+    composer require asxer/laravel-entity-generator: 1.*
 ```
 
-Add `RonasIT\Support\EntityGeneratorServiceProvider::class` to `app/config/app.php`, 
+Add `Asxer\Support\EntityGeneratorServiceProvider::class` to `app/config/app.php`, 
 into 'providers' variable. And publish.
 
 ```bash

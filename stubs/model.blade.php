@@ -1,6 +1,6 @@
 namespace App\Models;
 
-use RonasIT\Support\Traits\ModelTrait;
+use Asxer\Support\Traits\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class {{$entity}} extends Model
